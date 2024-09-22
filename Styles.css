@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Asegúrate de que no haya barras de desplazamiento si usas pseudo-elementos */
+    position: relative; /* Necesario para el posicionamiento absoluto del pseudo-elemento */
+    background: url('fd.jpg') no-repeat center center; /* Imagen de fondo */
+    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+}
+
+body::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.064); /* Degradado oscuro con opacidad del 50% */
+    z-index: 1; /* Asegúrate de que el pseudo-elemento esté encima de la imagen */
+}
+
+.container {
+    position: relative; /* Asegura que el contenido esté por encima del pseudo-elemento */
+    z-index: 2; /* Necesario para que el contenido esté visible sobre el degradado */
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background: rgba( 255, 255, 255, 0.7 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+h1 {
+    font-size: 30px;
+    color: #d6336c; 
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    transition: flex-direction 0.3s ease;
+}
+
+.button {
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#yesButton {
+
+    background-color: #e12567; 
+    color: #ffffff;
+}
+
+#noButton {
+    background-color: #e12567; 
+    color: #ffffff;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#yesButton:hover {
+    background-color: #ff7c1edc; 
+}
+
+#noButton:hover {
+    background-color: #ff7c1edc;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+  
+    
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
